@@ -59,7 +59,7 @@ class AddFragment : DialogFragment(R.layout.add_fragment)
             {
                 mainViewModel.insertItem(CustomModel(binding.editText.text.toString()))
                 hideSoftKeyboard()
-                activity!!.supportFragmentManager.popBackStack()
+                dismiss()
             }
         })
     }
