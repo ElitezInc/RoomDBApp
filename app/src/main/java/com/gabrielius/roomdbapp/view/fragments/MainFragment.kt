@@ -37,9 +37,10 @@ class MainFragment : Fragment(R.layout.main_fragment), CustomListeners
     private val mainViewModel : MainViewModel by activityViewModels()
     private lateinit var adapter : CustomAdapter
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater : LayoutInflater,
+        container : ViewGroup?,
+        savedInstanceState : Bundle?
     ) : View
     {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
@@ -58,17 +59,19 @@ class MainFragment : Fragment(R.layout.main_fragment), CustomListeners
     {
         adapter = CustomAdapter(requireContext(), this@MainFragment)
 
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
+        binding.recyclerView.layoutManager = LinearLayoutManager(
+            requireContext(),
+            RecyclerView.VERTICAL,
+            false
+        )
         binding.recyclerView.adapter = adapter
-
-        (binding.recyclerView.layoutManager as LinearLayoutManager).setAutoMeasureEnabled(false)
 
         mainViewModel.getItems().observe(getViewLifecycleOwner(),
             object : Observer<List<CustomModel>>
         {
             override fun onChanged(list : List<CustomModel>)
             {
-                Log.d("MainFragment","ID ${list.map { it.id }}, Name ${list.map { it.name }}")
+                Log.d("MainFragment","${list.map { Pair(it.id, it.name) }}")
                 binding.recyclerView.removeAllViews()
                 adapter.setItems(list)
             }
@@ -81,14 +84,16 @@ class MainFragment : Fragment(R.layout.main_fragment), CustomListeners
     {
         binding.floatingActionButtonAdd.setOnClickListener(object : View.OnClickListener
         {
-            override fun onClick(view : View?) {
+            override fun onClick(view : View?)
+            {
                 onAdd()
             }
         })
 
         binding.floatingActionButtonDelete.setOnClickListener(object : View.OnClickListener
         {
-            override fun onClick(view : View?) {
+            override fun onClick(view : View?)
+            {
                 mainViewModel.deleteAll()
             }
         })
@@ -107,6 +112,6 @@ class MainFragment : Fragment(R.layout.main_fragment), CustomListeners
 
     override fun onDelete(item : CustomModel, position : Int)
     {
-        lifecycleScope.launch { mainViewModel.deleteItem(item) }
+        mainViewModel.deleteItem(item)
     }
 }

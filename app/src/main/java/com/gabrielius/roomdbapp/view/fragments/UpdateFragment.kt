@@ -24,7 +24,8 @@ class UpdateFragment : DialogFragment(R.layout.update_fragment)
 {
     companion object
     {
-        fun newInstance() : UpdateFragment {
+        fun newInstance() : UpdateFragment
+        {
             return UpdateFragment()
         }
     }
@@ -39,9 +40,10 @@ class UpdateFragment : DialogFragment(R.layout.update_fragment)
         setStyle(STYLE_NORMAL, R.style.DialogFragment)
     }
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater : LayoutInflater,
+        container : ViewGroup?,
+        savedInstanceState : Bundle?
     ) : View
     {
         _binding = UpdateFragmentBinding.inflate(inflater, container, false)

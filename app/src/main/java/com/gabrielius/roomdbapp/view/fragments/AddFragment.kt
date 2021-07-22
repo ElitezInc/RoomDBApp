@@ -29,9 +29,10 @@ class AddFragment : Fragment(R.layout.add_fragment)
     val binding get() = _binding!!
     private val mainViewModel : MainViewModel by activityViewModels()
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater : LayoutInflater,
+        container : ViewGroup?,
+        savedInstanceState: Bundle?
     ) : View
     {
         _binding = AddFragmentBinding.inflate(inflater, container, false)

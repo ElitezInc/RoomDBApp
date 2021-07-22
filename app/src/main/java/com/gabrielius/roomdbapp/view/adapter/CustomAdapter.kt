@@ -42,13 +42,13 @@ class CustomAdapter : RecyclerView.Adapter<CustomAdapter.ViewHolder>
 
         holder.buttonEdit.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view : View) {
-                customListeners.onUpdate(list[position],position)
+                customListeners.onUpdate(list[position], position)
             }
         })
 
         holder.buttonDelete.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view : View) {
-                customListeners.onDelete(list[position],position)
+                customListeners.onDelete(list[position], position)
             }
         })
     }
