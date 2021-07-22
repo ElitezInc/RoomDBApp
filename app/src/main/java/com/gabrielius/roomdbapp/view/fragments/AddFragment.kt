@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.gabrielius.roomdbapp.R
@@ -15,7 +16,7 @@ import com.gabrielius.roomdbapp.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddFragment : Fragment(R.layout.add_fragment)
+class AddFragment : DialogFragment(R.layout.add_fragment)
 {
     companion object
     {
@@ -28,6 +29,12 @@ class AddFragment : Fragment(R.layout.add_fragment)
     var _binding : AddFragmentBinding? = null
     val binding get() = _binding!!
     private val mainViewModel : MainViewModel by activityViewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, R.style.DialogFragment)
+    }
 
     override fun onCreateView(
         inflater : LayoutInflater,

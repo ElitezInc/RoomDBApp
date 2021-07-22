@@ -4,12 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <data class="CustomBinder">
-        <variable
-            name="customModel"
-            type="com.gabrielius.roomdbapp.model.CustomModel" />
-    </data>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,16 +23,18 @@
                 android:layout_height="50dp"
                 android:contentDescription="Image"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 tools:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
                 android:id="@+id/text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@={customModel.name}"
-                tools:text="[Name]"
+                android:text="Sample Text"
+                android:textSize="16sp"
+                android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="25dp"/>
+                android:layout_marginLeft="15dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -38,10 +38,12 @@ class MainActivity : AppCompatActivity()
 
     fun callAddFragment()
     {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.container, AddFragment.newInstance())
-            .addToBackStack("")
-            .commit()
+        AddFragment
+            .newInstance()
+            .show(
+                supportFragmentManager.beginTransaction(),
+                ""
+            )
     }
 
     fun callUpdateFragment()
